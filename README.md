@@ -206,4 +206,18 @@ insert(I, N, [H|T], [H|R]) :-
 ```
 ?- insert(50, 2, [10,20,30], R).
 ```
+<br>
+
 # 15. Write a PROLOG program to implement delete(N, L, R) that removes the elements on Nth Position from a list L to generate a list R.
+```
+delete(1, [_|T], T).
+
+delete(N, [H|T], [H|R]) :-
+    N > 1,
+    N1 is N - 1,
+    delete(N1, T, R).
+```
+```
+?- delete(2, [10,20,30,40], R).
+```
+# ---END---
