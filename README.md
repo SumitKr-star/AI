@@ -62,14 +62,96 @@ sum(X, Y, S) :-
 
 # 5. Write a PROLOG program to implement max(X,Y,M) so that M is the maximum of two numbers X and Y.
 ```
+max(X, Y, X) :-
+    X >= Y.
 
+max(X, Y, Y) :-
+    Y > X.
 ```
+```
+?- max(10, 20, M).
+```
+<br>
+
 # 6. Write a PROLOG program to implement factorial (N,F) where F represents the factorial of a number N.
+```
+factorial(0, 1).
+
+factorial(N, F) :-
+    N > 0,
+    N1 is N - 1,
+    factorial(N1, F1),
+    F is N * F1.
+```
+```
+?- factorial(5, F).
+```
+<br>
+
 # 7. Write a PROLOG program to implement generate_fib(N.T) where T represents the Nth term of the Fibonacci series.
+```
+generate_fib(0, 0).
+
+generate_fib(1, 1).
+
+generate_fib(N, T) :-
+    N > 1,
+    N1 is N - 1,
+    N2 is N - 2,
+    generate_fib(N1, T1),
+    generate_fib(N2, T2),
+    T is T1 + T2.
+```
+```
+?- generate_fib(6, T).
+```
+<br>
+
 # 8. Write a PROLOG program to implement power(Num, Pow, Ans) : where Num is raised to the power Pow to get Ans.
+```
+power(_, 0, 1).
+
+power(Num, Pow, Ans) :-
+    Pow > 0,
+    P1 is Pow - 1,
+    power(Num, P1, A1),
+    Ans is Num * A1.
+```
+```
+?- power(2, 3, Ans).
+```
+<br>
+
 # 9. Write a PROLOG program to implement multi(N1, N2, R) : where N1 and N2 denotes the numbers to be multiplied and R represents the result.
+```
+multi(N1, N2, R) :-
+    R is N1 * N2.
+```
+<br>
+
 # 10. Write a PROLOG program to implement member (X,L) : to check whether X is a member of L or not.
+```
+memb(X, [X|_]).
+
+memb(X, [_|T]) :-
+    memb(X, T).
+```
+```
+?- memb(3, [1,2,3,4]).
+```
+<br>
+
 # 11. Write a PROLOG program to implement sumlist(L,S) so that S is the sum of a given list L.
+```
+sumlist([], 0).
+
+sumlist([H|T], S) :-
+    sumlist(T, S1),
+    S is H + S1.
+```
+```
+?- sumlist([1,2,3,4], S).
+```
 # 12. Write a PROLOG program to implement two predicates evenlength(List) and oddlength(List) so that they are true if their argument is a list of even or odd length respectively.
 # 13. Write a PROLOG program to implement maxlist(L,M) so that M is the maximum number in the list.
 # 14. Write a PROLOG program to implement insert(I, N, L, R) that inserts an item I into Nth Position of list L to generate a list R.
