@@ -156,6 +156,8 @@ sumlist([H|T], S) :-
 ```
 ?- sumlist([1,2,3,4], S).
 ```
+<br>
+
 # 12. Write a PROLOG program to implement two predicates evenlength(List) and oddlength(List) so that they are true if their argument is a list of even or odd length respectively.
 ```
 evenlength([]).
