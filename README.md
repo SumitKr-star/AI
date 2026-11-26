@@ -157,6 +157,20 @@ sumlist([H|T], S) :-
 ?- sumlist([1,2,3,4], S).
 ```
 # 12. Write a PROLOG program to implement two predicates evenlength(List) and oddlength(List) so that they are true if their argument is a list of even or odd length respectively.
+```
+evenlength([]).
+
+evenlength([_,_|T]) :-
+    evenlength(T).
+
+oddlength([_]).
+
+oddlength([_,_|T]) :-
+    oddlength(T).
+```
+```
+?- evenlength([1,2,3,4]).
+```
 # 13. Write a PROLOG program to implement maxlist(L,M) so that M is the maximum number in the list.
 # 14. Write a PROLOG program to implement insert(I, N, L, R) that inserts an item I into Nth Position of list L to generate a list R.
 # 15. Write a PROLOG program to implement delete(N, L, R) that removes the elements on Nth Position from a list L to generate a list R.
