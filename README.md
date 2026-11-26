@@ -173,6 +173,24 @@ oddlength([_,_|T]) :-
 ```
 ?- evenlength([1,2,3,4]).
 ```
+<br>
+
 # 13. Write a PROLOG program to implement maxlist(L,M) so that M is the maximum number in the list.
+```
+maxlist([X], X).
+
+maxlist([H|T], M) :-
+    maxlist(T, M1),
+    H >= M1,
+    M is H.
+
+maxlist([H|T], M) :-
+    maxlist(T, M1),
+    H < M1,
+    M is M1.
+```
+```
+
+```
 # 14. Write a PROLOG program to implement insert(I, N, L, R) that inserts an item I into Nth Position of list L to generate a list R.
 # 15. Write a PROLOG program to implement delete(N, L, R) that removes the elements on Nth Position from a list L to generate a list R.
