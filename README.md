@@ -128,6 +128,9 @@ power(Num, Pow, Ans) :-
 multi(N1, N2, R) :-
     R is N1 * N2.
 ```
+```
+?- multi(5, 4, R).
+```
 <br>
 
 # 10. Write a PROLOG program to implement member (X,L) : to check whether X is a member of L or not.
