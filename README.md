@@ -190,7 +190,20 @@ maxlist([H|T], M) :-
     M is M1.
 ```
 ```
-
+?- maxlist([10,25,5,40,15], M).
 ```
+<br>
+
 # 14. Write a PROLOG program to implement insert(I, N, L, R) that inserts an item I into Nth Position of list L to generate a list R.
+```
+insert(I, 1, L, [I|L]).
+
+insert(I, N, [H|T], [H|R]) :-
+    N > 1,
+    N1 is N - 1,
+    insert(I, N1, T, R).
+```
+```
+?- insert(50, 2, [10,20,30], R).
+```
 # 15. Write a PROLOG program to implement delete(N, L, R) that removes the elements on Nth Position from a list L to generate a list R.
